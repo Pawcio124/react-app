@@ -1,0 +1,17 @@
+.pagination_nav{
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.page_btn_active{
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 100%;
+}
+.btn_nav{
+
+    margin-left: 5px;
+    border-radius: 100%;
+    margin-right: 5px;
+}

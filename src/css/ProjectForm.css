@@ -1,0 +1,32 @@
+.project_add_form_body{
+    text-align: center;
+    height: 700px;
+    width: 700px;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+.project_add_form{
+    margin-top: 40px;
+    position: fixed;
+    height: 500px;
+    width:500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.add_btn_form{
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 170%;
+    transform: translate(-50%, -50%);
+}
+.project_form_add{
+    margin-top: 50px;
+    position: absolute;
+    width: 500px;
+}

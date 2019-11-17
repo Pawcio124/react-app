@@ -1,0 +1,120 @@
+#logo{
+    margin-top: 30px;
+    text-align: center;
+}
+#logo h1{
+    opacity: 0.9;
+    font-family: 'Lobster', cursive;
+    font-size: 100px;
+    color: transparent;
+    text-shadow: 1px 1px white  ;
+}
+#box{
+    height: 140px;
+    width: 1100px;
+    background-color: #2D2D2D;
+    border-radius: 5px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+#main{
+    height: 470px;
+    width: 470px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+    z-index: 99;
+}
+#loginform, #signupform{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+#signupform{
+    top: 45%;
+    left: 75%;
+    visibility: hidden;
+}
+#loginform h1, #signupform h1{
+    font-family: Arial;
+    font-size: 25px;
+    color: black;
+}
+#loginform input, #signupform input{
+    height: 40px;
+    width: 300px;
+    border: 0px;
+    outline: none;
+    border-bottom: 1px solid black;
+    margin: 5px;
+}
+#login_form_btn, #signup_form_btn{
+    height: 35px;
+    width: 130px;
+    font-family: monospace;
+    font-size: 16px;
+    color: white;
+    margin-top: 30px;
+}
+#login_btn, #signup_btn{
+    height: 35px;
+    width: 120px;
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    outline: none;
+    left: 75%;
+    top: 65%;
+    transform: translate(-50%,-50%);
+    translation: all .5s;
+}
+#signup_btn{
+    left: 25%;
+}
+#login_btn:hover, #signup_btn:hover {
+    background-color: white;
+    color: #2d2d2d;
+    cursor: pointer;
+}
+#login_msg, #signup_msg{
+    font-family: Arial;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+#signup_msg{
+    left: 25%;
+}
+.checkbox_position, .terms{
+    position: absolute;
+}
+.terms{
+    left: 0px;
+    bottom: 35px;
+    width: 200px;
+}
+.checkbox_position{
+    right: -70px;
+    bottom: 28px;
+}
+input[type=checkbox]{
+    transform: scale(0.4);
+}
+#signup_form_btn{
+    margin-top: 50px;
+}

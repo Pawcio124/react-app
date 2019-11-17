@@ -1,0 +1,49 @@
+#register_confirmation{
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+#register_confirmation_btn{
+    height: 35px;
+    width: 130px;
+    font-family: monospace;
+    font-size: 16px;
+    color: white;
+    margin-top: 30px;
+}
+#register_confirmation input{
+    height: 40px;
+    width: 300px;
+    border: 0px;
+    outline: none;
+    border-bottom: 1px solid black;
+    margin: 5px;
+}
+#register_confirmation p{
+    font-family: Arial;
+    font-size: 25px;
+    color: black;
+}
+.main_confirmation{
+    height: 470px;
+    width: 470px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    z-index: 99;
+}
+.congratulation{
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}

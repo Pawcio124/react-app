@@ -1,0 +1,78 @@
+.fade-enter{
+    opacity: 0.01;
+}
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+}
+.fade-exit{
+    opacity: 1;
+}
+.fade-exit-active{
+    opacity: 0.01;
+    transition: opacity 1000ms ease-in;
+}
+.task_circle_task_list{
+    border-radius:50% ;
+    width: 350px;
+    height: 350px;
+    opacity: 0.9;
+    text-align: center;
+}
+.card_inside_task_list{
+    top: 50px;
+    left: 25px;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+}
+.btn_delete_task, .btn_update_task{
+    position: relative;
+    width: 70px;
+    border-radius: 100% 0 0 100%;
+    left: 86px;
+    bottom: 80px;
+}
+.btn_update_task{
+    left: 124px;
+    border-radius: 0 100% 100% 0;
+}
+.checkboxContainer input{
+    display: none;
+}
+.checkboxContainer{
+    display: inline-block;
+    cursor: pointer;
+}
+.checkboxContainer .checkmark{
+    border: 1px solid black;
+    display: inline-block;
+    position: absolute;
+    left: 171px;
+    bottom: 80px;
+    height: 37.5px;
+    width: 38px;
+    background-color: white;
+}
+.checkboxContainer input:checked + .checkmark{
+    background-color: #2196fc;
+
+}
+.checkboxContainer:hover .checkmark{
+    background-color: #ccc;
+}
+
+.checkboxContainer input:checked + .checkmark:after{
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 21px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    top: 8px;
+    left: 8px;
+    transform: rotate(-60deg);
+}
