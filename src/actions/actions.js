@@ -13,7 +13,7 @@ import {
     TASK_LIST_ERROR,
     TASK_LIST_RECEIVED,
     TASK_LIST_REQUEST,
-    TASK_LIST_UNLOAD, USER_CONFIRMATION_SUCCESS,
+    TASK_LIST_UNLOAD, TASK_UPDATED, USER_CONFIRMATION_SUCCESS,
     USER_LOGIN_SUCCESS,
     USER_LOGOUT,
     USER_PROFILE_ERROR,
@@ -189,8 +189,16 @@ export const taskAdd = (task, projectId, place, dateEndTask, taskPriority) => {
     }
 };
 
+export const taskEditUpdated= (task) =>{
+    return {
+        type: TASK_UPDATED,
+        task
+    }
+};
+
 export const taskEdit = (taskId, content, place, dateEndTask, taskPriority) =>{
-        return request.put(
+    return dispatch => {
+        request.put(
             `/tasks/${taskId}`,
             {
                 content,
@@ -198,8 +206,10 @@ export const taskEdit = (taskId, content, place, dateEndTask, taskPriority) =>{
                 dateEndTask,
                 taskPriority: parseInt(taskPriority, 10)
             }
-        )
-};
+        ).catch(error => {
+            console.log(error)
+        }).then(response =>{dispatch(taskEditUpdated(response));})
+    }};
 
 export const taskDone = (taskId, done)=>{
     return request.put(`/tasks/${taskId}`,

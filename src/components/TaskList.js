@@ -8,8 +8,6 @@ import Moment from 'react-moment';
 import moment from 'moment/min/moment-with-locales';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import {Field, reduxForm} from "redux-form";
-import {renderField} from "../form";
 
 Moment.globalMoment = moment;
 Moment.globalLocale='pl';
@@ -28,8 +26,12 @@ class TaskList extends React.Component{
 
         this.toggleClass= this.toggleClass.bind(this);
         this.state = {
-            activeIndex: null
-        }
+            activeIndex: null,
+            taskPriority: null,
+            content: null,
+            dateEndTask: null
+
+    }
     }
 
     setDone(task){
@@ -44,26 +46,49 @@ class TaskList extends React.Component{
 
     }
 
-    onSubmitEdit(task, values){
-        const {reset, taskEdit} =this.props;
-        console.log(values);
-        if (values.taskPriority === undefined){
-            values.taskPriority = 4;
-        }
-        return taskEdit( task.id, values.content, values.place, values.dateEndTask, values.taskPriority)
-            .then(() => {
-                reset();
-            })
-    }
-
     toggleClass(index) {
         this.setState({ activeIndex: this.state.activeIndex === index ? null : index });
+        this.setState({content:null});
+        this.setState({place:null});
+        this.setState({taskPriority:null});
+        this.setState({dateEndTask:null});
     };
 
     onClick(taskId){
         const {taskDelete} = this.props;
         return taskDelete(taskId)
     };
+
+    handleChangeCo = (e) =>{
+        this.setState({content:e.target.value});
+    };
+    handleChangePl = (e) =>{
+        this.setState({place:e.target.value});
+    };
+    handleChangeTP = (e) =>{
+        this.setState({taskPriority:e.target.value});
+    };
+    handleChangeDET = (e) =>{
+        this.setState({dateEndTask :e.target.value});
+    };
+    onClickEdit(task){
+        const {reset}= this.props;
+
+        if (this.state.dateEndTask===null){
+            this.state.dateEndTask = task.dateEndTask;
+        }
+        if (this.state.taskPriority === null){
+            this.state.taskPriority = 1;
+        }
+        if (this.state.content === null){
+            this.state.content = task.content;
+        }
+        if(this.state.place ===null){
+            this.state.place = task.place;
+        }
+        return this.props.taskEdit(this.state.activeIndex, this.state.content, this.state.place, this.state.dateEndTask, this.state.taskPriority);
+    };
+
     render() {
         const {taskList, submitting}= this.props;
 
@@ -71,6 +96,7 @@ class TaskList extends React.Component{
             return null;
         }
         return (
+
                 taskList.map(task =>
                      <Col>
                         <CSSTransition key={task.id} timeout={1000} classNames="fade">
@@ -79,16 +105,14 @@ class TaskList extends React.Component{
 
                                 {(this.state.activeIndex === task.id) ?
                                     <div className="update_form" key={task.id}>
-                                        <form  onSubmit={this.onSubmitEdit.bind(this, task)} className="form_add">
-                                            <Field name="content" placeholder={task.content} type="text" component={renderField}/>
-                                            <Field name="place" placeholder={task.place} type="text" component={renderField}/>
-                                            <Field name="taskPriority" placeholder={task.taskPriority} type="number" min="1" max="5" component={renderField} />
-                                            <Field name="dateEndTask" type="date" component={renderField}/>
-                                            <Button size='lg'  type="submit" className="edit_btn" variant="outline-success"
-                                                    disabled={submitting}>
-                                                Zapisz
-                                            </Button>
-                                        </form>
+
+                                        <input type="text" value={this.state.content} onChange={this.handleChangeCo}/>
+                                        <input type="text" value={this.state.place} onChange={this.handleChangePl} />
+                                        <input type="number" min={1} max={5} value={this.state.taskPriority} onChange={this.handleChangeTP} />
+                                        <input type="date" value={this.state.dateEndTask} onChange={this.handleChangeDET} />
+                                        <button onClick={this.onClickEdit.bind(this, task)}>
+                                        Zapis
+                                        </button>
                                     </div>
                                     : null }
 
@@ -111,6 +135,4 @@ class TaskList extends React.Component{
         )
     }
 }
-export default reduxForm({
-    form: 'TaskList'
-})(connect(null, mapDispatchToProps)(TaskList));
+export default connect(null, mapDispatchToProps)(TaskList);
