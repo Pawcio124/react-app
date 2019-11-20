@@ -72,8 +72,6 @@ class TaskList extends React.Component{
         this.setState({dateEndTask :e.target.value});
     };
     onClickEdit(task){
-        const {reset}= this.props;
-
         if (this.state.dateEndTask===null){
             this.state.dateEndTask = task.dateEndTask;
         }
@@ -90,7 +88,7 @@ class TaskList extends React.Component{
     };
 
     render() {
-        const {taskList, submitting}= this.props;
+        const {taskList}= this.props;
 
         if (null === taskList || 0 === taskList.length){
             return null;
