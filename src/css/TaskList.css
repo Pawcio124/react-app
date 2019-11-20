@@ -76,3 +76,31 @@
     left: 8px;
     transform: rotate(-60deg);
 }
+.update_form{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 50%;
+    left: 50%;
+    top: 125px;
+    transform: translate(-50%, -50%);
+}
+.input_body{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 40%;
+}
+.task_edit_btn{
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 205px;
+
+}
+.input_body input{
+    margin-top: 5px;
+    border-radius: 5px;
+}

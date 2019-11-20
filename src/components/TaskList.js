@@ -40,7 +40,6 @@ class TaskList extends React.Component{
         return (
             taskDone(task.id,task.done).then(()=> {
                 $("#zadanie"+ task.id).prop('checked', task.done);
-                reset();
             })
         )
 
@@ -103,14 +102,16 @@ class TaskList extends React.Component{
 
                                 {(this.state.activeIndex === task.id) ?
                                     <div className="update_form" key={task.id}>
-
-                                        <input type="text" value={this.state.content} onChange={this.handleChangeCo}/>
-                                        <input type="text" value={this.state.place} onChange={this.handleChangePl} />
-                                        <input type="number" min={1} max={5} value={this.state.taskPriority} onChange={this.handleChangeTP} />
-                                        <input type="date" value={this.state.dateEndTask} onChange={this.handleChangeDET} />
-                                        <button onClick={this.onClickEdit.bind(this, task)}>
-                                        Zapis
-                                        </button>
+                                        <div className="input_body">
+                                            <h3>Edytowanie</h3>
+                                            <input placeholder="Nazwa" type="text" value={this.state.content} onChange={this.handleChangeCo}/>
+                                            <input placeholder="Miejsce" type="text" value={this.state.place} onChange={this.handleChangePl} />
+                                            <input placeholder="Priorytet (1-5)" type="number" min={1} max={5} value={this.state.taskPriority} onChange={this.handleChangeTP} />
+                                            <input type="date" value={this.state.dateEndTask} onChange={this.handleChangeDET} />
+                                            <Button className="task_edit_btn" variant="outline-success" onClick={this.onClickEdit.bind(this, task)}>
+                                            Zapisz
+                                            </Button>
+                                        </div>
                                     </div>
                                     : null }
 
