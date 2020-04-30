@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "cross-env": "^5.1.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "react-scripts": "1.1.1",
     "reactstrap": "^8.1.1"
   },
